@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My E-Commerce Store</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; color: #222; background: #f4f6fb; }
+    header { background: #172554; color: white; padding: 24px 16px; text-align: center; }
+    header h1 { margin: 0 0 8px; }
+    main { max-width: 1000px; margin: 32px auto; padding: 0 16px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .product { background: white; padding: 24px; border-radius: 14px; box-shadow: 0 4px 14px rgba(0,0,0,.07); text-align: center; }
+    .emoji { font-size: 56px; }
+    .price { font-weight: bold; color: #1d4ed8; font-size: 20px; }
+    button { border: 0; border-radius: 8px; padding: 11px 18px; background: #2563eb; color: white; cursor: pointer; font-size: 15px; }
+    button:hover { background: #1d4ed8; }
+    .cart { margin-top: 24px; background: white; padding: 18px; border-radius: 12px; text-align: center; }
+    footer { text-align: center; color: #64748b; padding: 28px 12px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Online Store</h1>
+    <p>Simple shopping, made easy.</p>
+  </header>
+  <main>
+    <h2>Featured Products</h2>
+    <section class="products">
+      <article class="product">
+        <div class="emoji">🎧</div><h2>Headphones</h2>
+        <p>Enjoy your favourite music.</p><p class="price">₹999</p>
+        <button onclick="addToCart('Headphones')">Add to Cart</button>
+      </article>
+      <article class="product">
+        <div class="emoji">⌚</div><h2>Smart Watch</h2>
+        <p>Stay connected throughout the day.</p><p class="price">₹1,499</p>
+        <button onclick="addToCart('Smart Watch')">Add to Cart</button>
+      </article>
+      <article class="product">
+        <div class="emoji">🎒</div><h2>Backpack</h2>
+        <p>A useful companion for every day.</p><p class="price">₹799</p>
+        <button onclick="addToCart('Backpack')">Add to Cart</button>
+      </article>
+    </section>
+    <section class="cart" aria-live="polite">
+      <h2>Your Cart</h2><p id="cart-count">Cart Items: 0</p>
+      <p id="cart-items">No items added yet.</p>
+    </section>
+  </main>
+  <footer>Demo e-commerce website for DevOps practical.</footer>
+  <script>
+    const cart = [];
+    function addToCart(productName) {
+      cart.push(productName);
+      document.getElementById("cart-count").textContent = "Cart Items: " + cart.length;
+      document.getElementById("cart-items").textContent = cart.join(", ");
+    }
+  </script>
+</body>
+</html>
